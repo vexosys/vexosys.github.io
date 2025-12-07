@@ -1,0 +1,51 @@
+[
+	{
+		"bbl": "3021140019",
+		"the_geom": {
+			"type": "MultiPolygon",
+			"coordinates": [
+				[
+					[
+						[-73.97497076234886, 40.68639574582032],
+						[-73.97505382269682, 40.68627217555862],
+						[-73.9751187123618, 40.686297449916665],
+						[-73.97503529819598, 40.68642154604806],
+						[-73.97497076234886, 40.68639574582032]
+					]
+				]
+			]
+		},
+		"borough": "BK",
+		"bin": "3059275",
+		"block": "2114",
+		"lot": "19",
+		"des_addres": "672 Fulton Street",
+		"circa": "0",
+		"date_low": "1882",
+		"date_high": "1882",
+		"date_combo": "1882",
+		"alt_date_1": "0",
+		"alt_date_2": "0",
+		"arch_build": "Charles A. Snedecker",
+		"own_devel": "Charles A. Cheseborough",
+		"alt_arch_1": "0",
+		"alt_arch_2": "0",
+		"style_prim": "neo-Grec",
+		"style_sec": "0",
+		"style_oth": "0",
+		"mat_sec": "0",
+		"mat_prim": "Cast Iron",
+		"mat_third": "0",
+		"mat_four": "0",
+		"mat_other": "0",
+		"use_orig": "Residential, multi-family",
+		"use_other": "0",
+		"build_type": "Flats Building",
+		"build_oth": "0",
+		"notes": "0",
+		"build_nme": "0",
+		"hist_dist": "Brooklyn Academy of Music Historic District",
+		"lm_orig": "0",
+		"lm_new": "0"
+	}
+]
