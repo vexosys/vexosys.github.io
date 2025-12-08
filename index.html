@@ -1,1 +1,124 @@
-Hello World!
+<h1 id="2d-to-3d-side-by-side-video-converter-gpu-optimized-">2D to 3D Side-by-Side Video Converter (GPU Optimized)</h1>
+<p><img src="https://github.com/PointerSoftware/2D-to-3D-SBS-Converter/blob/main/2D-3D-SBS.png" alt="3D SBS Converter Example"></p>
+<p>A powerful Python application that converts standard 2D videos into stereoscopic 3D Side-by-Side (SBS) format for VR viewing. This converter uses deep learning (MiDaS) to generate accurate depth maps and create high-quality stereoscopic 3D videos optimized for various VR headsets.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Deep Learning-Based Depth Estimation</strong>: Uses the MiDaS neural network for accurate depth map generation</li>
+<li><strong>GPU Optimization</strong>: Maximizes GPU utilization for faster processing with batch frame handling</li>
+<li><strong>Video Segment Processing</strong>: Select specific portions of longer videos to convert</li>
+<li><strong>Adjustable 3D Parameters</strong>:<ul>
+<li>Depth intensity control (0.0-1.0)</li>
+<li>Convergence distance adjustment (1.0-10.0) </li>
+<li>Eye separation control (0.1-5.0)</li>
+</ul>
+</li>
+<li><strong>Multiple Input Sources</strong>:<ul>
+<li>Upload local video files (up to 500MB)</li>
+<li>Process videos from URLs including YouTube</li>
+</ul>
+</li>
+<li><strong>Format Support</strong>: <ul>
+<li>Input: MP4, AVI, MOV, WebM, MKV (up to 4K resolution)</li>
+<li>Output: H.264 encoded MP4 in SBS format (1920x1080)</li>
+</ul>
+</li>
+<li><strong>Real-time Preview</strong>: Visualize parameter adjustments before processing</li>
+<li><strong>Clean User Interface</strong>: Intuitive Gradio-based UI with tab-based workflow</li>
+<li><strong>Comprehensive Progress Tracking</strong>: Detailed status updates during conversion</li>
+</ul>
+<h2 id="demo">Demo</h2>
+<p><a href="https://colab.research.google.com/github/PointerSoftware/2D-to-3D-SBS-Converter/blob/main/2D_to_3D_SBS_Converter.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></p>
+<h2 id="how-it-works">How It Works</h2>
+<p>The converter uses a multi-stage pipeline to transform 2D videos into 3D SBS format:</p>
+<ol>
+<li><strong>Frame Extraction</strong>: Extracts frames from the source video</li>
+<li><strong>Depth Estimation</strong>: Processes each frame through the MiDaS neural network to generate depth maps</li>
+<li><strong>Stereoscopic Synthesis</strong>: Creates left and right eye views by applying a displacement algorithm based on the depth maps</li>
+<li><strong>View Combination</strong>: Combines the stereoscopic views into a side-by-side format</li>
+<li><strong>Video Encoding</strong>: Encodes the final frames into an H.264 MP4 video</li>
+</ol>
+<h2 id="installation">Installation</h2>
+<h3 id="google-colab-recommended-">Google Colab (Recommended)</h3>
+<p>The easiest way to run this converter is through Google Colab, which provides free GPU resources:</p>
+<ol>
+<li>Open the <a href="https://colab.research.google.com/github/PointerSoftware/2D-to-3D-SBS-Converter/blob/main/2D_to_3D_SBS_Converter.ipynb">Colab Notebook</a></li>
+<li>Select &quot;Runtime&quot; → &quot;Change runtime type&quot; → Set &quot;Hardware accelerator&quot; to &quot;GPU&quot;</li>
+<li>Run all cells</li>
+</ol>
+<h3 id="local-installation">Local Installation</h3>
+<p>To run the converter locally (requires a CUDA-capable NVIDIA GPU):</p>
+<ol>
+<li><p>Clone this repository:</p>
+<pre><code>git clone http<span class="hljs-variable">s:</span>//github.<span class="hljs-keyword">com</span>/PointerSoftware/<span class="hljs-number">2</span>D-<span class="hljs-keyword">to</span>-<span class="hljs-number">3</span>D-SBS-Converter.git
+<span class="hljs-keyword">cd</span> <span class="hljs-number">2</span>D-<span class="hljs-keyword">to</span>-<span class="hljs-number">3</span>D-SBS-Converter
+</code></pre></li>
+<li><p>Set up a Python virtual environment:</p>
+<pre><code><span class="hljs-keyword">python</span> -<span class="hljs-keyword">m</span> venv venv
+<span class="hljs-keyword">source</span> venv/bin/activate  # On Window<span class="hljs-variable">s:</span> venv\Scripts\activate
+</code></pre></li>
+<li><p>Install dependencies:</p>
+<pre><code>pip <span class="hljs-keyword">install</span> -r requirements.txt
+</code></pre></li>
+<li><p>Run the notebook:</p>
+<pre><code><span class="hljs-selector-tag">jupyter</span> <span class="hljs-selector-tag">notebook</span> 2<span class="hljs-selector-tag">D_to_3D_SBS_Converter</span><span class="hljs-selector-class">.ipynb</span>
+</code></pre></li>
+</ol>
+<h2 id="usage-guide">Usage Guide</h2>
+<h3 id="basic-usage">Basic Usage</h3>
+<ol>
+<li>Upload a video file or provide a URL to a video (supports YouTube)</li>
+<li>Adjust the 3D effect parameters:<ul>
+<li><strong>Depth Intensity</strong>: Controls the strength of the 3D effect (higher values create more pronounced depth)</li>
+<li><strong>Convergence Distance</strong>: Adjusts where objects appear relative to the screen plane</li>
+<li><strong>Eye Separation</strong>: Controls the virtual camera separation (higher values create more extreme 3D effects)</li>
+</ul>
+</li>
+<li>Click &quot;Update Preview&quot; to see how your settings affect the 3D output</li>
+<li>Click &quot;Process Video&quot; to convert the entire video to 3D SBS format</li>
+<li>Download the converted video for viewing in a VR headset or 3D display</li>
+</ol>
+<h3 id="video-segmentation">Video Segmentation</h3>
+<p>For longer videos, you can process specific segments:</p>
+<ol>
+<li>Check the &quot;Process a specific segment&quot; box</li>
+<li>Set the start and end times in seconds</li>
+<li>Process only the selected portion of the video</li>
+</ol>
+<p>This is useful for:</p>
+<ul>
+<li>Testing 3D settings on a clip before processing the entire video</li>
+<li>Processing very long videos in manageable chunks</li>
+<li>Creating 3D highlights from specific parts of longer videos</li>
+</ul>
+<h2 id="viewing-the-3d-videos">Viewing the 3D Videos</h2>
+<p>The output video is in Side-by-Side (SBS) format, which can be viewed in:</p>
+<ul>
+<li>VR headsets using video players that support SBS format</li>
+<li>3D TVs with SBS viewing mode</li>
+<li>Special 3D viewers like Google Cardboard with SBS-compatible apps</li>
+</ul>
+<h2 id="technical-details">Technical Details</h2>
+<ul>
+<li><strong>Depth Map Generation</strong>: Uses MiDaS DPT_Large model for depth estimation</li>
+<li><strong>Output Format</strong>: 1920x1080 (16:9) with 960x720 (4:3) content for each eye, embedded with black bars</li>
+<li><strong>GPU Acceleration</strong>: Optimized for NVIDIA GPUs with dynamic batch sizing based on available memory</li>
+<li><strong>Memory Management</strong>: Periodic GPU memory cleanup to handle larger videos</li>
+<li><strong>Video Processing</strong>: FFmpeg-based segment extraction and final encoding</li>
+</ul>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Python 3.8+</li>
+<li>PyTorch with CUDA support</li>
+<li>OpenCV, NumPy, Gradio</li>
+<li>FFmpeg</li>
+<li>NVIDIA GPU with CUDA support (for GPU acceleration)</li>
+</ul>
+<h2 id="license">License</h2>
+<p>This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
+<h2 id="acknowledgments">Acknowledgments</h2>
+<ul>
+<li><a href="https://github.com/isl-org/MiDaS">MiDaS</a> for the depth estimation model</li>
+<li><a href="https://gradio.app/">Gradio</a> for the user interface framework</li>
+<li><a href="https://ffmpeg.org/">FFmpeg</a> for video processing capabilities</li>
+</ul>
+<h2 id="contributing">Contributing</h2>
