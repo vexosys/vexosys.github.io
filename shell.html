@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Custom Protocol Terminal</title>
+
+  <!-- Local or CDN Xterm CSS -->
+  <link rel="stylesheet" href="css/xterm.css" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body, html {
+      width: 100vw;
+      height: 100vh;
+      background-color: #000;
+      overflow: hidden;
+    }
+    #controls {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 100;
+      display: flex;
+      gap: 8px;
+    }
+    button {
+      background: #333;
+      color: #fff;
+      border: 1px solid #555;
+      padding: 6px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover { background: #444; }
+    #terminal-container {
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+    </style> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <div id="controls">
+    <button id="btn-pause">Pause ('2')</button>
+    <button id="btn-resume">Resume ('3')</button>
+  </div>
+  <div id="terminal-container"></div>
+
+
+
+
+
+
+<!--   <!-- Role Selector & Dynamic Room Entry -->
+  <div class="panel" id="setupPanel">
+    <h3>1. Setup / Choose Your Role</h3>
+    
+    <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
+      <strong>Host Options:</strong><br>
+      <button id="btnHost" onclick="initHost()">Create Unique Room & Start as Host</button>
+    </div>
+
+    <div>
+      <strong>Viewer Options:</strong><br>
+      <input type="text" id="roomInput" placeholder="Enter Unique Room ID here...">
+      <button id="btnViewer" onclick="initViewer()">Join Room as Viewer</button>
+    </div>
+  </div>
+
+  <!-- Interactive Controls -->
+  <div class="panel" id="controlsPanel" style="display:none;">
+    <h3 id="roleTitle">Role: None</h3>
+    <p>Your Client ID: <strong id="myIdDisplay">-</strong></p>
+    <p>Connected Supabase Channel: <span id="currentRoomDisplay" class="room-box">-</span></p>
+    
+    <!-- Data Channel Control Area (Works for both Host and Viewer) -->
+    <div id="dataChannelControls" style="margin-top: 15px;">
+      <input type="text" id="chatInput" placeholder="Type message over WebRTC DataChannel...">
+      <button id="btnSendMessage" onclick="triggerSend()">Send Data Channel Message</button>
+    </div>
+  </div>
+ -->
+
+
+
+
+
+
+
+<div id="controlsPanel">
+  <h2 id="roleTitle">Role: Viewer (Client)</h2>
+  <div>Your Client ID: <span id="myIdDisplay">-</span></div>
+  <div>Connected Room: <span id="currentRoomDisplay">-</span></div>
+</div>
+
+
+
+  <script src="js/lib/adapter.js"></script>
+  <script src="js/xterm.js"></script>
+  <script src="js/xterm-addon-fit.js"></script>
+  <!-- <script src="js/tty.js"></script> -->
+  <script src="js/app.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
